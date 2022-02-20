@@ -8,8 +8,8 @@ function App() {
     <div className="app">
       <nav>
         <ul>
-          <li><NavLink to="create">Add Employee</NavLink></li>
           <li><NavLink to="">Show Employees</NavLink> </li>
+          <li><NavLink to="create">Add Employee</NavLink></li>
         </ul>
       </nav>
 

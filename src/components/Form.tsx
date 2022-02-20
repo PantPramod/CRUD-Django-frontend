@@ -77,8 +77,8 @@ const Form = ({ type, id, refreshList }: formType) => {
             <div className='input'>
                 <label>Gender</label>
                 <select {...register("gender")}>
-                    <option value="female">Female</option>
                     <option value="male">Male</option>
+                    <option value="female">Female</option>
                 </select>
             </div>
             <div className='input'>

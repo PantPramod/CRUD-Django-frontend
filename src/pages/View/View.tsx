@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import Form from '../../components/Form';
 import { del } from '../../utils/djangoSubmit';
 import './View.css';
@@ -57,7 +58,7 @@ const View = () => {
 
     return (<>
         <div className='view'>
-            <div className='allemp'>
+            {!showUpdate && <div className='allemp'>
                 <h2 className='heading'>All Employees</h2>
                 <ul className='allemplist'>
                     {allEmp.map((emp: obj) =>
@@ -73,7 +74,7 @@ const View = () => {
                         </li>
                     )}
                 </ul>
-            </div>
+            </div>}
 
             {showDetailsEmp && <div className='detaildemp'>
                 <button className='close' onClick={() => setShowDetailsEmp(false)}>X</button>
