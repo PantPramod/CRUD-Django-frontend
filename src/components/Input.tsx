@@ -1,5 +1,6 @@
 import React from 'react'
 import { Path, UseFormRegister } from "react-hook-form";
+import './Input.css';
 
 interface Inputs {
     name: string,
@@ -19,7 +20,7 @@ const Input = ({ register, title, type }: propTypes) => {
     return (
         <div className='input'>
             <label>{title}</label>
-            <input type={type} {...register(title, { required: true })} />
+            <input type={type} {...register(title)} />
         </div>
     )
 }

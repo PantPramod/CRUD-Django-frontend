@@ -1,0 +1,16 @@
+.input{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+.input label{
+    width: 150px;
+    text-transform: capitalize;
+}
+.input input{
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    border:1px solid rgb(155, 143, 143);
+    flex: 1;
+    }

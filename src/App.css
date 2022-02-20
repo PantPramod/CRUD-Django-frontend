@@ -15,3 +15,15 @@ nav ul li a{
   color: white;
 
 }
+.flex{
+  display: flex;
+
+}
+#ml20{
+  margin-left: 20px;
+  color: rgb(63, 59, 59);
+}
+.p20{
+  padding: 20px;
+
+}

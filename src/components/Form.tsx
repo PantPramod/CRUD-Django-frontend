@@ -1,7 +1,8 @@
-import React from 'react'
-import './Create.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Input from '../../components/Input';
+import { postData, updateData } from '../utils/djangoSubmit'
+import Input from './Input';
+import './Form.css';
+
 type Inputs = {
     name: string,
     phone: string,
@@ -12,32 +13,24 @@ type Inputs = {
     linkedin: string
 };
 
-const Create = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+type formType = {
+    type: string,
+    id?: number,
+    refreshList?: () => void | undefined
+}
+const Form = ({ type, id, refreshList }: formType) => {
+
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<Inputs>();
+
     const onSubmit: SubmitHandler<Inputs> = data => {
+        if (type == "post") {
+            postData(data, reset)
 
+        }
+        else if (type = "update") {
+            updateData(data, id, refreshList, reset)
 
-        var formdata = new FormData();
-        formdata.append("name", data.name);
-        formdata.append("resume", data.resume[0]);
-        formdata.append("phone", data.phone);
-        formdata.append("email", data.email);
-        formdata.append("gender", data.gender);
-        formdata.append("linkedin", data.linkedin);
-        formdata.append("github", data.github);
-
-
-        fetch("https://django-rest-api-employee.herokuapp.com/api/emp/", {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result)
-                alert("added Successfully")
-            })
-            .catch(error => console.log('error', error));
+        }
 
     };
     return (<>
@@ -90,7 +83,7 @@ const Create = () => {
             </div>
             <div className='input'>
                 <label></label>
-                <input type="submit" />
+                <input type="submit" value={type} />
             </div>
 
         </form>
@@ -98,4 +91,4 @@ const Create = () => {
     )
 }
 
-export default Create
+export default Form

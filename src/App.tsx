@@ -1,13 +1,9 @@
-
-import logo from './logo.svg';
-import './App.css';
 import { Route, NavLink, Routes } from 'react-router-dom';
-import Create from './pages/Create/Create';
-import View from './pages/View/View';
+import Form from './components/Form';
+import View from './pages/View';
+import './App.css';
+
 function App() {
-
-
-
   return (
     <div className="app">
       <nav>
@@ -18,7 +14,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path='create' element={<Create />}></Route>
+        <Route path='create' element={<Form type="post" />}></Route>
         <Route path='' element={<View />}></Route>
       </Routes>
     </div >
