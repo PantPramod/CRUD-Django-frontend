@@ -8,14 +8,15 @@ function App() {
     <div className="app">
       <nav>
         <ul>
-          <li><NavLink to="">Show Employees</NavLink> </li>
-          <li><NavLink to="create">Add Employee</NavLink></li>
+
+          <li><NavLink to="/" >Show Employees</NavLink> </li>
+          <li><NavLink to="/create">Add Employee</NavLink></li>
         </ul>
       </nav>
 
       <Routes>
-        <Route path='create' element={<Form type="post" />}></Route>
-        <Route path='' element={<View />}></Route>
+        <Route path='/' element={<View />}></Route>
+        <Route path='/create' element={<Form type="post" />}></Route>
       </Routes>
     </div >
   );
